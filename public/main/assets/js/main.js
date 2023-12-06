@@ -324,7 +324,7 @@ jQuery(function ($) {
       slidesToShow: 3,
       slidesToScroll: 1,
       arrows: true,
-      autoplay: true, 
+      autoplay: true,
       prevArrow: '<button class="arrow-back"> <img src="assets/images/home-six/arroe-left.png" alt=""></button>',
       nextArrow: '<button class="arrow-next"> <img src="assets/images/home-six/arroe-right.png" alt=""></button>',
       autoplaySpeed: 2000,
@@ -334,7 +334,7 @@ jQuery(function ($) {
           settings: {
             slidesToShow: 2,
           }
-        } 
+        }
       ]
     });
   };
@@ -815,7 +815,7 @@ jQuery(function ($) {
 
 
 
-  //=== CountDownTimer===  
+  //=== CountDownTimer===
   if ($(".time-countdown-two").length) {
     $(".time-countdown-two").each(function () {
       var Self = $(this);
@@ -971,7 +971,7 @@ jQuery(function ($) {
     });
   };
 
-  //  Price Filter 
+  //  Price Filter
   if ($("#price-range").length) {
     $("#price-range").slider({
       range: true,
@@ -1011,5 +1011,12 @@ jQuery(function ($) {
       $(".loader").css("display", "none");
     });
   });
+
+    $(document).ready(function(){
+        $('.radio-group .radio').click(function(){
+            $(this).parent().parent().find('.radio').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    })
 
 }(jQuery));

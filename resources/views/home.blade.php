@@ -7,6 +7,10 @@
             "slidesToScroll": 1, "arrows": false, "autoplay": true, "autoplaySpeed": 6000,
              "fade": false, "pauseOnHover": false}'>
 
+
+
+
+
             <!-- Slide -->
             <div class="slide">
                 <div class="contant-box position-relative">
@@ -26,7 +30,7 @@
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula
                                             faucibus massa est elit maecenas.
                                         </p>
-                                        <a href="shop-grid.html"
+                                        <a href="{{ route('shop') }}"
                                             class="btn--primary button style2 wow animated fadeInUp">Shop
                                             Collection</a>
                                     </div>
@@ -57,7 +61,7 @@
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula
                                             faucibus massa est elit maecenas.
                                         </p>
-                                        <a href="shop-grid.html"
+                                        <a href="{{ route('shop') }}"
                                             class="btn--primary button style2 wow animated fadeInUp">Shop
                                             Collection</a>
                                     </div>
@@ -85,7 +89,7 @@
                             @foreach ($latest_shoes as $item)
                             <li class="products-three-single wow fadeInUp animated">
                                 <div class="products-three-single-img">
-                                    <a href="shop-details-3.html" class="d-block"> <img
+                                    <a href="{{ route('shoes', ['id' => $item->id]) }}" class="d-block"> <img
                                             src="{{ asset('cover/'.$item->cover) }}" class="first-img"
                                             alt="" /> <img src="{{ asset('cover/'.$item->cover) }}"
                                             alt="" class="hover-img" /></a>
@@ -125,52 +129,26 @@
                                 </div>
                                 <p>Continually enhance long-term don high impact niche markets whereas user centric
                                     niche markets. actualize backward compatible...</p>
-                                <div class="btn-box"> <a href="shop-grid-left-sidebar.html"
-                                        class="btn--primary style2">Discover More</a> </div>
                             </div>
                         </div>
 
                         <div class="col-xl-8">
                             <div class="row  justify-content-center">
+                                @foreach($categories as $item)
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="categories-three__list-item mt-30 wow fadeInUp animated">
                                         <div class="categories-three__list-item-inner"> <a
-                                                href="shop-grid-right-sidebar.html" class="img-box"> <img
-                                                    src="{{ asset('main/assets/images/home-three/categories-v2-img1.jpg') }}" alt="" />
-                                                <div class="text"> <span>369 Items</span> </div>
+                                                href="{{ route('category_product', ['id' => $item->id]) }}" class="img-box {{!$item->products ? 'disabled' : ''}}"> <img
+                                                    src="{{ asset('cover/'.$item->cover) }}" alt="" />
+                                                <div class="text"> <span>{{$item->products ? $item->products()->count() : 'N/A'}} Items</span> </div>
                                             </a>
                                             <div class="title text-center">
-                                                <h4><a href="shop-grid-left-sidebar.html">Sport’s Shoes</a></h4>
+                                                <h4><a class="{{!$item->products ? 'disabled' : ''}}" href="{{ route('category_product', ['id' => $item->id]) }}">{{ $item->title }}</a></h4>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="categories-three__list-item mt-30 wow fadeInUp animated">
-                                        <div class="categories-three__list-item-inner"> <a
-                                                href="shop-grid-left-sidebar.html" class="img-box"> <img
-                                                    src="{{ asset('main/assets/images/home-three/categories-v2-img2.jpg') }}" alt="" />
-                                                <div class="text"> <span>369 Items</span> </div>
-                                            </a>
-                                            <div class="title text-center">
-                                                <h4><a href="shop-grid-left-sidebar.html">Casual Shoes</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6">
-                                    <div class="categories-three__list-item mt-30 wow fadeInUp animated">
-                                        <div class="categories-three__list-item-inner"> <a
-                                                href="shop-grid-left-sidebar.html" class="img-box"> <img
-                                                    src="{{ asset('main/assets/images/home-three/categories-v2-img3.jpg') }}" alt="" />
-                                                <div class="text"> <span>369 Items</span> </div>
-                                            </a>
-                                            <div class="title text-center">
-                                                <h4><a href="shop-grid-left-sidebar.html">Office Shoes</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -187,7 +165,7 @@
                 <div class="col-xxl-3 col-md-6 mt-30 wow fadeInUp animated " data-wow-delay="0.2s">
                     <div class="core-features__box d-flex ms-0"> <span class="one"></span> <span class="two"></span>
                         <div class="icon"> <img src="assets/images/icon/f-icon-1.png" alt=""> </div>
-                        <div class="core-features__box-content"> <a href="login.html" class="d-block">
+                        <div class="core-features__box-content"> <a href="login.html" class="d-block disabled">
                                 <h4> Secure Payment </h4>
                             </a>
                             <p>Everybody different which the why give offer styles for every body.</p>
@@ -197,7 +175,7 @@
                 <div class="col-xxl-3 col-md-6 mt-30 wow fadeInUp animated " data-wow-delay="0.3s">
                     <div class="core-features__box d-flex "> <span class="one"></span> <span class="two"></span>
                         <div class="icon"> <img src="assets/images/icon/f-icon-2.png" alt=""> </div>
-                        <div class="core-features__box-content"> <a href="login.html" class="d-block">
+                        <div class="core-features__box-content"> <a href="login.html" class="d-block disabled">
                                 <h4> 27/7 Fast Delivery </h4>
                             </a>
                             <p>Everybody different which the why give offer styles for every body.</p>
@@ -207,7 +185,7 @@
                 <div class="col-xxl-3 col-md-6 mt-30 wow fadeInUp animated " data-wow-delay="0.4s">
                     <div class="core-features__box d-flex "> <span class="one"></span> <span class="two"></span>
                         <div class="icon"> <img src="assets/images/icon/f-icon-3.png" alt=""> </div>
-                        <div class="core-features__box-content"> <a href="login.html" class="d-block">
+                        <div class="core-features__box-content"> <a href="login.html" class="d-block disabled">
                                 <h4> Return & Refund </h4>
                             </a>
                             <p>Everybody different which the why give offer styles for every body.</p>
@@ -217,7 +195,7 @@
                 <div class="col-xxl-3 col-md-6 mt-30 wow fadeInUp animated " data-wow-delay="0.5s">
                     <div class="core-features__box d-flex me-0"> <span class="one"></span> <span class="two"></span>
                         <div class="icon"> <img src="assets/images/icon/f-icon-4.png" alt=""> </div>
-                        <div class="core-features__box-content"> <a href="login.html" class="d-block">
+                        <div class="core-features__box-content"> <a href="login.html" class="d-block disabled">
                                 <h4> Quality Support </h4>
                             </a>
                             <p>Everybody different which the why give offer styles for every body.</p>

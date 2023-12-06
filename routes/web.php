@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/migrate', function() {
+    Artisan::call("migrate");
+    return 'migrated';
+});
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::get('/shop', [MainController::class, 'shop'])->name('shop');
 Route::get('/basket/index', [BasketController::class , 'index'])->name('basket.index');
 Route::get('/basket/checkout', [BasketController::class , 'checkout'])->name('basket.checkout');
 Route::post('/basket/add/{id}', [BasketController::class , 'add'])
@@ -35,6 +39,9 @@ Route::post('/basket/remove/{id}', [BasketController::class , 'remove'])
     ->name('basket.remove');
 Route::post('/basket/clear', [BasketController::class , 'clear'])->name('basket.clear');
 
+Route::get('shoes/{id}', [ProductController::class, 'showItem'])->name('shoes');
+Route::get('product/{id}', [CategoryController::class, 'showProductsCategory'])->name('category_product');
+
 Route::middleware('auth')->group(function () {
 Route::get('/admin', AdminController::class);
 Route::group(['prefix'=>'admin'], function(){
@@ -46,6 +53,7 @@ Route::group(['prefix'=>'admin'], function(){
     Route::resource('products', ProductController::class);
     Route::post('products/deletecover/{id}', [ProductController::class, 'deletecover'])->name('products.deletecover');
     Route::post('products/deleteimage/{id}', [ProductController::class, 'deleteimage'])->name('products.deleteimage');
+    Route::post('categories/deleteimage/{id}', [CategoryController::class, 'deletecover'])->name('categories.deletecover');
 });
 
 });

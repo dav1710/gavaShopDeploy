@@ -1,11 +1,29 @@
 @extends('layouts.main')
 @section('main')
-<div class="basket" style="height: 100vh">
+<div class="basket">
 @if (count($products))
     @php
         $basketCost = 0;
     @endphp
-<section class="cart-area pt-120 pb-120">
+<section class="breadcrumb-area" style="background-image: url(assets/images/inner-pages/breadcum-bg.png);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-content text-center wow fadeInUp animated">
+                            <h2>Cart</h2>
+                            <div class="breadcrumb-menu">
+                                <ul>
+                                    <li><a href="/"><i class="flaticon-home pe-2"></i>Home</a></li>
+                                    <li> <i class="flaticon-next"></i> </li>
+                                    <li class="active">Cart</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+<section class="cart-area pt-30 pb-120">
     <div class="container">
         <div class="row wow fadeInUp animated">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -28,7 +46,13 @@
                                     $itemQuantity =  $product->pivot->quantity;
                                     $itemCost = $itemPrice * $itemQuantity;
                                     $basketCost = $basketCost + $itemCost;
+                                    // dd($itemPrice,$itemQuantity,$itemCost,$basketCost);
                                 @endphp
+
+                            {{ Log::info($itemPrice) }}
+                            {{ Log::info($itemQuantity) }}
+                            {{ Log::info($itemCost) }}
+                            {{ Log::info($basketCost) }}
                                 <tr>
                                     <td>
                                         <div class="thumb-box">
@@ -70,6 +94,7 @@
                                     </td>
                                 </tr>
                             @endforeach
+
                             </tbody>
                         </table>
                     </div>
@@ -93,7 +118,7 @@
                             <thead class="cart-header clearfix">
                                 <tr>
                                     <th colspan="1" class="shipping-title">Shipping</th>
-                                    <th class="price">$2500.00</th>
+                                    <th class="price">$150</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -119,7 +144,7 @@
                                     <td>
                                         <h4 class="total">Total</h4>
                                     </td>
-                                    <td class="subtotal">$2500.00</td>
+                                    <td class="subtotal">${{ number_format($itemCost, 2, '.', '') }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -135,23 +160,23 @@
                                 <p>Subtotal</p>
                             </div>
                             <div class="right">
-                                <p>$2500.00</p>
+                                <p>${{ number_format($itemCost, 2, '.', '') }}</p>
                             </div>
                         </li>
-                        <li>
-                            <div class="left">
-                                <p>Shipping</p>
-                            </div>
-                            <div class="right">
-                                <p><span>Flat rate:</span> $50.00</p>
-                            </div>
-                        </li>
+{{--                        <li>--}}
+{{--                            <div class="left">--}}
+{{--                                <p>Shipping</p>--}}
+{{--                            </div>--}}
+{{--                            <div class="right">--}}
+{{--                                <p><span>Flat rate:</span> $150.00</p>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
                         <li>
                             <div class="left">
                                 <p>Total Price:</p>
                             </div>
                             <div class="right">
-                                <p>$2550.00</p>
+                                <p>${{ number_format($itemCost, 2, '.', '') }}</p>
                             </div>
                         </li>
                     </ul>

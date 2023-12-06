@@ -85,7 +85,7 @@
                                         <div class="form-group m-0"> <label for="email"> Write Message </label>
                                             <textarea placeholder="Hi, Good Afternoon..."></textarea> </div>
                                     </div>
-                                </div> <button type="submit" class="btn--primary style2 ">Send Message </button>
+                                </div> <button type="submit" class="btn--primary style2 " disabled>Send Message </button>
                             </form>
                         </div>
                     </div>

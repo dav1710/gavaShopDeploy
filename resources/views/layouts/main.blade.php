@@ -78,9 +78,9 @@
                             <ul class="page-dropdown-menu">
                                 <li> <a href="/">Home</a>
                                 </li>
-                                <li> <a href="/">Shop</a>
+                                <li> <a href="{{ route('shop') }}">Shop</a>
                                 </li>
-                                <li><a href="contact.html">Contact </a></li>
+                                <li><a href="{{ route('contact') }}">Contact </a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,9 +97,9 @@
                                     <div class="some-info">
                                         <p class="d-flex align-items-center"> <span class="icon"> <i
                                                     class="flaticon-power"></i> </span> Welcome to Gava Online Shop</p>
-                                        <div class="right d-flex align-items-center ">
-                                            <a href="/"> Sign In / Register </a>
-                                        </div>
+{{--                                        <div class="right d-flex align-items-center ">--}}
+{{--                                            <a href="/"> Sign In / Register </a>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                                     class="page-dropdown-menu d-flex align-items-center justify-content-center">
                                                     <li class="dropdown-list"> <a href="/">Home</a>
                                                     </li>
-                                                    <li class="dropdown-list"> <a href="/">Shop</a>
+                                                    <li class="dropdown-list"> <a href="{{ route('shop') }}">Shop</a>
                                                     </li>
                                                     <li class="dropdown-list"> <a href="{{ route('contact') }}">Contact</a> </li>
                                                 </ul>
@@ -224,9 +224,9 @@
                                 <h4> Information </h4>
                             </div>
                             <ul class="footer-links">
-                                <li><a href="about-us.html">About us</a></li>
-                                <li><a href="contact.html">Contact Us </a></li>
-                                <li><a href="faq.html">Faq</a></li>
+                                <li><a class="disabled" href="about-us.html">About us</a></li>
+                                <li><a href="{{ route('contact') }}">Contact Us </a></li>
+                                <li><a class="disabled" href="faq.html">Faq</a></li>
                             </ul>
                         </div>
                     </div>
@@ -239,20 +239,20 @@
                                             <p>Follow Us:</p>
                                         </div>
                                         <ul>
-                                            <li><a href="https://www.facebook.com/" target="_blank" class="active"><i
+                                            <li><a class="disabled" href="https://www.facebook.com/" target="_blank" class="active"><i
                                                         class="flaticon-facebook-app-symbol"></i></a></li>
-                                            <li><a href="https://www.youtube.com/" target="_blank"><i
+                                            <li><a class="disabled" href="https://www.youtube.com/" target="_blank"><i
                                                         class="flaticon-youtube"></i></a></li>
-                                            <li><a href="https://twitter.com/"><i class="flaticon-twitter"
+                                            <li><a class="disabled" href="https://twitter.com/"><i class="flaticon-twitter"
                                                         target="_blank"></i></a></li>
-                                            <li><a href="https://www.instagram.com/"><i class="flaticon-instagram"
+                                            <li><a class="disabled" href="https://www.instagram.com/"><i class="flaticon-instagram"
                                                         target="_blank"></i></a></li>
                                         </ul>
                                         <ul class="footer-payment wow fadeInUp animated">
-                                            <a href="#0"> <img src="{{ asset('main/assets/images/home-four/method-1.jpg') }}" alt="payment"> </a>
-                                            <a href="#0"> <img src="{{ asset('main/assets/images/home-four/method-2.jpg') }}" alt="payment"> </a>
-                                            <a href="#0"> <img src="{{ asset('main/assets/images/home-four/method-3.jpg') }}" alt="payment"> </a>
-                                            <a href="#0"> <img src="{{ asset('main/assets/images/home-four/method-4.jpg') }}" alt="payment"> </a>
+                                            <a class="disabled" href="#0"> <img src="{{ asset('main/assets/images/home-four/method-1.jpg') }}" alt="payment"> </a>
+                                            <a class="disabled" href="#0"> <img src="{{ asset('main/assets/images/home-four/method-2.jpg') }}" alt="payment"> </a>
+                                            <a class="disabled" href="#0"> <img src="{{ asset('main/assets/images/home-four/method-3.jpg') }}" alt="payment"> </a>
+                                            <a class="disabled" href="#0"> <img src="{{ asset('main/assets/images/home-four/method-4.jpg') }}" alt="payment"> </a>
                                         </ul>
                                     </div>
 

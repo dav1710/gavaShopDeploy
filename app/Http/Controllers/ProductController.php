@@ -99,6 +99,15 @@ class ProductController extends Controller
         return view('product.show', compact('product', 'images'));
     }
 
+    public function showItem($id)
+    {
+        $shoes = Product::findorFail($id);
+        $colors = Color::all();
+        $shoes_sizes = ShoesSize::all();
+
+        return view('shoes', compact('shoes', 'colors', 'shoes_sizes'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

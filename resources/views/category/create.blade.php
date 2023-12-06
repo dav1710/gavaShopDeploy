@@ -14,13 +14,25 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <form action="{{ route('categories.store') }}" method="POST">
+                <form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
-                            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter category name">
+                            <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter category name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" name="cover" class="custom-file-input" required>
+                                    <label class="custom-file-label" for="inputGroupFile02">Choose Cover</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="">Upload</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

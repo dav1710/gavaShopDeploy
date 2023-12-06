@@ -441,7 +441,25 @@ h5, .h5 {
 h6, .h6 {
   font-size: 18px;
 }
+a.disabled {
+    pointer-events: none;
+}
+.radio {
+    width: 70px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+.radio:hover {
+    box-shadow: 0 0 2px 2px #BDBDBD;
+    transition: 0.3s
+}
 
+.radio.selected {
+    box-shadow: 0 0 2px 2px #9E9E9E;
+    transition: 0.3s
+}
 /* large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   h2, .h2 {
@@ -7735,6 +7753,8 @@ newsLetter-one style-two
   -webkit-transform: scale(1);
           transform: scale(1);
   min-width: 100%;
+  min-height: 250px;
+  object-fit: cover;
 }
 .categories-three__list-item-inner .img-box:hover img {
   -webkit-transform: scale(1.1);
