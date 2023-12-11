@@ -25,7 +25,10 @@ class BasketController extends Controller
         return view('basket.checkout');
     }
     public function add(Request $request, $id) {
+//        dd($request);
         $quantity = $request->input('quantity') ?? 1;
+//        $shoes_size = $request->input('checked_shoes_size') ? $request->input('checked_shoes_size') : '';
+//        $color = $request->input('color') ? $request->input('color') : '';
         $this->basket->increase($id, $quantity);
         // выполняем редирект обратно на ту страницу,
         // где была нажата кнопка «В корзину»

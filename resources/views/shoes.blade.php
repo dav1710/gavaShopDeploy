@@ -58,17 +58,36 @@
                                     <ul class="varients">
                                         @foreach($colors as $color)
                                             @if(in_array($color->id,$color->selecteded))
-                                                <li id="{{in_array($color->id,$color->selecteded) ? $color->id : ''}}" class='radio {{$loop->first ? 'selected' : '' }}' style="background-color:{{ in_array($color->id,$color->selecteded) ? '#'.$color->title : 'transparent'}} ">
+                                                <li id="{{in_array($color->id,$color->selecteded) ? $color->id : ''}}" >
+                                                    <input type="radio" class="color_id" name="color_id" value="{{$color->title}}"> <div style="background-color: {{'#'.$color->title}}; width: 20px; height: 20px; border-radius: 50%"></div>
                                                 </li>
                                             @endif
                                         @endforeach
                                     </ul>
+                                </div>
+                                <div class="shop-details-top-size-box">
+                                    <h4>Size:</h4>
+                                    <div class="shop-details-top-size-list-box">
+                                        <ul class="shop-details-top-size-list">
+                                            @foreach($shoes_sizes as $item)
+                                                @if(in_array($item->id,$item->selecteded))
+                                                    <li id="{{in_array($item->id,$item->selecteded) ? $item->id : ''}}" >
+                                                        <input type="radio" class="shoes_size" name="shoes_size" value="{{$item->shoes_size}}">
+                                                        <div style="width: 20px; height: 20px;"><p>{{$item->shoes_size}}</p></div>
+                                                    </li>
+
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="shop-details-top-cart-box-btn mt-30">
                                     <form action="{{ route('basket.add', ['id' => $shoes->id]) }}"
                                           method="post" class="form-inline">
                                         @csrf
                                         <input type="hidden" name="quantity" class="card_value" id="input-quantity" value="1">
+                                        <input type="hidden" name="checked_shoes_size" class="checked_shoes_size" value="">
+                                        <input type="hidden" name="color" class="color" value="">
                                         <button class="addcart btn--primary style2 " type="submit">Add to Cart</button>
                                     </form>
                                 </div>

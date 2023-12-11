@@ -118,9 +118,12 @@
                                                     <li class="dropdown-list"> <a href="{{ route('contact') }}">Contact</a> </li>
                                                 </ul>
                                             </nav>
+                                            @php
+                                                $itemQuantity =  0;
+                                            @endphp
                                             @foreach($products as $product)
                                             @php
-                                                $itemQuantity =  $product->pivot->quantity;
+                                                $itemQuantity +=  $product->pivot->quantity;
                                             @endphp
                                             @endforeach
 

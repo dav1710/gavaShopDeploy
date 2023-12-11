@@ -38,6 +38,10 @@ Route::post('/basket/remove/{id}', [BasketController::class , 'remove'])
     ->where('id', '[0-9]+')
     ->name('basket.remove');
 Route::post('/basket/clear', [BasketController::class , 'clear'])->name('basket.clear');
+Route::post('/checkout', [MainController::class , 'checkout'])->name('checkout');
+Route::get('/checkout-success', [MainController::class , 'success'])->name('checkout.success');
+Route::get('/checkout-cancel', [MainController::class , 'cancel'])->name('checkout.cancel');
+
 
 Route::get('shoes/{id}', [ProductController::class, 'showItem'])->name('shoes');
 Route::get('product/{id}', [CategoryController::class, 'showProductsCategory'])->name('category_product');

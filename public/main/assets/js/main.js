@@ -1002,6 +1002,14 @@ jQuery(function ($) {
     return false;
   });
 
+    $(".shoes_size").on('click', function () {
+        $(".checked_shoes_size").val($(this).val())
+    });
+
+    $(".color_id").on('click', function () {
+        $(".color").val($(this).val())
+    });
+
   $(window).on("load", function () {
 
     /****======  Preloader Js  ======*******/

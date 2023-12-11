@@ -44,6 +44,7 @@ class Basket extends Model
                 $pivotRow->delete();
             }
         } elseif ($count > 0) { // иначе — добавляем этот товар
+            // dd($this->products());
             $this->products()->attach($id, ['quantity' => $count]);
         }
         // обновляем поле `updated_at` таблицы `baskets`

@@ -14,6 +14,9 @@ class Product extends Model
     public function baskets() {
         return $this->belongsToMany(Basket::class)->withPivot('quantity');
     }
+    public function product_basket() {
+        return $this->belongsToMany(Basket::class)->withPivot('quantity', 'product_id');
+    }
     public function categories()
     {
         return $this->hasOne(Category::class);
